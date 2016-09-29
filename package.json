@@ -1,0 +1,11 @@
+{
+  "name": "daveyrocco.com",
+  "version": "0.0.0",
+  "description": "A website for photographer David Rocco",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nathan Beck",
+  "license": "BSD-2-Clause"
+}
