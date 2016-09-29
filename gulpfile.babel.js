@@ -3,6 +3,15 @@ import sass from 'gulp-sass';
 import autoprefixer from 'gulp-autoprefixer';
 import sourcemaps from 'gulp-sourcemaps';
 import babel from 'gulp-babel';
+import babelify from 'babelify';
+import browserify from 'browserify';
+import buffer from 'vinyl-buffer';
+import gutil from 'gulp-util';
+import livereload from 'gulp-livereload';
+import merge from 'merge';
+import rename from 'gulp-rename';
+import source from 'vinyl-source-stream';
+import watchify from 'watchify';
 
 const dirs = {
 	app: 'app',
@@ -14,7 +23,9 @@ const sassPaths = {
 };
 
 const jsPaths = {
-	allFiles: `${dirs.app}/js/**/*.js` 
+	allFiles: `${dirs.app}/js/**/*.js`,
+	src: `${dirs.app}/js/main.js`,
+	outputFile: 'bundle.js'
 }
 
 gulp.task('styles', () => {
