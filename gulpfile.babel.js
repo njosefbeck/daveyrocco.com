@@ -10,6 +10,7 @@ import rename from 'gulp-rename';
 import source from 'vinyl-source-stream';
 import watchify from 'watchify';
 import ghPages from 'gulp-gh-pages';
+import imagemin from 'gulp-imagemin';
 
 const dirs = {
 	app: 'app',
@@ -19,6 +20,10 @@ const dirs = {
 const sassPaths = {
 	src: `${dirs.app}/scss/style.scss`
 };
+
+const imagePaths = {
+	src: `${dirs.app}/images`
+}
 
 const jsPaths = {
 	allFiles: `${dirs.app}/js/**/*.js`,
@@ -44,6 +49,12 @@ gulp.task('styles', () => {
 		.pipe(autoprefixer())
 		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest(dirs.app));
+});
+
+gulp.task('images', () => {
+	gulp.src(imagePaths.src + '/*')
+		.pipe(imagemin())
+		.pipe(dirs.dist + '/images')
 });
 
 gulp.task('bundle', () => {
