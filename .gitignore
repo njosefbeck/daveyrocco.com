@@ -20,3 +20,4 @@ node_modules
 /dist/
 style.css
 style.css.map
+app/bundle.js
