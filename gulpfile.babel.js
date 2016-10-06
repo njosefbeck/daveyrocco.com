@@ -28,6 +28,18 @@ const jsPaths = {
 	outputFile: 'bundle.js'
 }
 
+function bundle (bundler) {
+	bundler
+		.bundle()
+		.pipe(source(jsPaths.src))
+		.pipe(buffer())
+		.pipe(rename(jsPaths.outputFile))
+		.pipe(sourcemaps.init({ loadMaps: true }))
+		.pipe(sourcemaps.write())
+		.pipe(gulp.dest(dirs.app))
+		.pipe(livereload());
+}
+
 gulp.task('styles', () => {
 	return gulp.src(sassPaths.src)
 		.pipe(sourcemaps.init())
@@ -41,4 +53,9 @@ gulp.task('js', () => {
 	return gulp.src(jsPaths.allFiles)
 		.pipe(babel({ presets: ['es2015'] }))
 		.pipe(gulp.dest(dirs.app));
+});
+
+gulp.task('bundle', () => {
+	var bundler = browserify(jsPaths.src).transform(babelify, { presets: ['es2015'] });
+	bundle(bundler);
 });
