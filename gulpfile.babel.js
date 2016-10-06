@@ -11,6 +11,8 @@ import source from 'vinyl-source-stream';
 import watchify from 'watchify';
 import ghPages from 'gulp-gh-pages';
 import imagemin from 'gulp-imagemin';
+import {create as bsCreate} from 'browser-sync';
+const browserSync = bsCreate();
 
 const dirs = {
 	app: 'app',
@@ -18,7 +20,8 @@ const dirs = {
 };
 
 const sassPaths = {
-	src: `${dirs.app}/scss/style.scss`
+	src: `${dirs.app}/scss/style.scss`,
+	allFiles: `${dirs.app}/scss/**/*`
 };
 
 const imagePaths = {
@@ -39,8 +42,21 @@ function bundle (bundler) {
 		.pipe(rename(jsPaths.outputFile))
 		.pipe(sourcemaps.init({ loadMaps: true }))
 		.pipe(sourcemaps.write())
-		.pipe(gulp.dest(dirs.app));
+		.pipe(gulp.dest(dirs.app))
+		.pipe(browserSync.stream());
 }
+
+gulp.task('browser-sync', () => {
+	browserSync.init({
+		server: {
+			baseDir: "./app"
+		}
+	})
+
+	gulp.watch(sassPaths.allFiles, ['styles']);
+	gulp.watch(jsPaths.allFiles, ['bundle']);
+	gulp.watch(dirs.app + '/*.html').on('change', browserSync.reload);
+});
 
 gulp.task('styles', () => {
 	return gulp.src(sassPaths.src)
@@ -48,7 +64,8 @@ gulp.task('styles', () => {
 		.pipe(sass())
 		.pipe(autoprefixer())
 		.pipe(sourcemaps.write('.'))
-		.pipe(gulp.dest(dirs.app));
+		.pipe(gulp.dest(dirs.app))
+		.pipe(browserSync.stream());
 });
 
 gulp.task('images', () => {
