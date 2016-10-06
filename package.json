@@ -16,18 +16,15 @@
     "gulp-autoprefixer": "^3.1.1",
     "gulp-babel": "^6.1.2",
     "gulp-gh-pages": "^0.5.4",
-    "gulp-livereload": "^3.8.1",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^1.6.0",
-    "gulp-util": "^3.0.7",
     "merge": "^1.2.0",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.7.0"
   },
   "dependencies": {
-    "babel-polyfill": "^6.16.0",
-    "systemjs": "^0.19.39"
+    "babel-polyfill": "^6.16.0"
   }
 }

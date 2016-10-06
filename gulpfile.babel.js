@@ -6,12 +6,10 @@ import babel from 'gulp-babel';
 import babelify from 'babelify';
 import browserify from 'browserify';
 import buffer from 'vinyl-buffer';
-import gutil from 'gulp-util';
-import livereload from 'gulp-livereload';
-import merge from 'merge';
 import rename from 'gulp-rename';
 import source from 'vinyl-source-stream';
 import watchify from 'watchify';
+import ghPages from 'gulp-gh-pages';
 
 const dirs = {
 	app: 'app',
@@ -36,8 +34,7 @@ function bundle (bundler) {
 		.pipe(rename(jsPaths.outputFile))
 		.pipe(sourcemaps.init({ loadMaps: true }))
 		.pipe(sourcemaps.write())
-		.pipe(gulp.dest(dirs.app))
-		.pipe(livereload());
+		.pipe(gulp.dest(dirs.app));
 }
 
 gulp.task('styles', () => {
@@ -49,13 +46,12 @@ gulp.task('styles', () => {
 		.pipe(gulp.dest(dirs.app));
 });
 
-gulp.task('js', () => {
-	return gulp.src(jsPaths.allFiles)
-		.pipe(babel({ presets: ['es2015'] }))
-		.pipe(gulp.dest(dirs.app));
-});
-
 gulp.task('bundle', () => {
 	var bundler = browserify(jsPaths.src).transform(babelify, { presets: ['es2015'] });
 	bundle(bundler);
+});
+
+gulp.task('deploy', () => {
+	return gulp.src(dirs.dist + '/**/*')
+		.pipe(ghPages());
 });
