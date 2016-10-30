@@ -15,6 +15,17 @@ body, html {
   background-size: cover;
   background-repeat: no-repeat; }
 
+.content-container {
+  background: rgba(255, 255, 255, 0.9);
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  padding-top: 10px;
+  left: 25%;
+  top: 25%;
+  text-align: center;
+  cursor: pointer; }
+
 .home {
   position: absolute;
   background-color: #000;
@@ -25,6 +36,26 @@ body, html {
   border-radius: 32px;
   bottom: 10px;
   left: 10px;
+  cursor: pointer; }
+
+.info {
+  background-color: rgba(255, 255, 255, 0.95);
+  position: absolute;
+  width: 100%;
+  top: 100%;
+  left: 7px;
+  bottom: 5px;
+  padding: 10px;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s; }
+
+.info.show {
+  top: 5px; }
+
+.close-info {
+  position: absolute;
+  top: 7px;
+  right: 35px;
   cursor: pointer; }
 
 /*# sourceMappingURL=style.css.map */
