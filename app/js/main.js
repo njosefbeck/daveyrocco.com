@@ -4,6 +4,8 @@ import '../libs/jquery.infinitedrag.js';
 
 jQuery(document).ready(() => {
 	'use strict';
+
+	var centeredTile = {};
 	//var tileWidth = document.documentElement.clientWidth - 20;
 	let tileWidth = 640;
 	//var tileHeight = document.documentElement.clientHeight;
@@ -20,16 +22,22 @@ jQuery(document).ready(() => {
 				count = 1;
 			}
 
+			if (count === 10) {
+				centeredTile.element = $element;
+				centeredTile.col = col;
+				centeredTile.row = row;
+			}
+
 			$element.css('background-image', 'url("images/' + count + '.jpg")');
 			count++;
 		}
 	});
 
-	wall.center(4, 5);
+	wall.center(centeredTile.col, centeredTile.row);
 
 	jQuery('.home').on('click', centerTiles);
 
 	function centerTiles() {
-		wall.center(4, 5);
+		wall.center(centeredTile.col, centeredTile.row);
 	}
 });
