@@ -33,9 +33,22 @@ jQuery(document).ready(() => {
 		}
 	});
 
+	centeredTile.element.append('<div class="content-container">davey rocco</div>')
+	centeredTile.element.append('<div class="info">Information<div class="close-info">X</div></div>');
+
 	wall.center(centeredTile.col, centeredTile.row);
 
+	jQuery('.content-container').on('click', showInfo);
+	jQuery('.close-info').on('click', hideInfo);
 	jQuery('.home').on('click', centerTiles);
+
+	function showInfo() {
+		jQuery('.info').addClass('show');
+	}
+
+	function hideInfo() {
+		jQuery('.info').removeClass('show');
+	}
 
 	function centerTiles() {
 		wall.center(centeredTile.col, centeredTile.row);
