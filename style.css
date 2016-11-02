@@ -1,14 +1,40 @@
 body, html {
   margin: 0;
   padding: 0;
+  width: 100%;
+  height: 100%;
   background-color: #000;
   overflow: hidden; }
+
+body {
+  position: relative; }
+
+h1, p {
+  margin: 0;
+  padding: 0; }
+
+h1 {
+  line-height: 0.75;
+  margin-bottom: 0.5rem; }
+
+p {
+  margin-bottom: 1rem; }
+
+a, a:active {
+  text-decoration: none;
+  color: #910000;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s; }
+  a:hover, a:active:hover {
+    color: #c40000; }
+  a:visited, a:active:visited {
+    color: #c40000; }
 
 #viewport {
   overflow: hidden;
   background-color: #000;
-  width: 100vw;
-  height: 100vh; }
+  width: 100%;
+  height: 100%; }
 
 #wall ._tile {
   background-color: #000;
@@ -16,32 +42,59 @@ body, html {
   background-repeat: no-repeat; }
 
 .content-container {
-  background: rgba(255, 255, 255, 0.9);
-  width: 50%;
-  height: 50%;
-  position: absolute;
-  padding-top: 10px;
-  left: 25%;
-  top: 25%;
-  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  text-align: center; }
+
+.content {
+  display: table-cell;
+  vertical-align: middle;
+  color: rgba(0, 0, 0, 0.4); }
+  .content h1 {
+    margin-bottom: 2rem; }
+  .content p {
+    font-size: 1.5rem;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s; }
+    .content p:hover {
+      color: rgba(0, 0, 0, 0.6); }
+
+.get-info {
   cursor: pointer; }
 
 .home {
   position: absolute;
   background-color: #000;
-  color: #FFF;
+  color: rgba(255, 255, 255, 0.9);
   padding: 10px;
   width: 32px;
   height: 32px;
   border-radius: 32px;
   bottom: 10px;
   left: 10px;
-  cursor: pointer; }
+  cursor: pointer;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s; }
+  .home:hover {
+    color: white; }
+
+.home-text {
+  margin-top: 6px;
+  margin-left: -1px; }
 
 .info {
   background-color: rgba(255, 255, 255, 0.95);
   position: absolute;
-  width: 100%;
+  overflow-y: scroll;
+  width: 95%;
   top: 100%;
   left: 7px;
   bottom: 5px;
@@ -50,12 +103,13 @@ body, html {
   transition: all 0.5s; }
 
 .info.show {
-  top: 5px; }
+  top: 5px;
+  cursor: auto; }
 
 .close-info {
   position: absolute;
-  top: 7px;
-  right: 35px;
+  top: 6px;
+  right: 10px;
   cursor: pointer; }
 
 /*# sourceMappingURL=style.css.map */
