@@ -1,11 +1,30 @@
 .content-container {
-	background: rgba($white, .9);
-	width: 50%;
-	height: 50%;
-	position: absolute;
-	padding-top: 10px;
-	left: 25%;
-	top: 25%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
 	text-align: center;
+}
+
+.content {
+	display: table-cell;
+	vertical-align: middle;
+	color: rgba($black, 0.4);
+
+	h1 {
+		margin-bottom: 2rem;
+	}
+
+	p {
+		font-size: 1.5rem;
+		transition: all 0.5s;
+
+		&:hover {
+			color: rgba($black, 0.6);
+		}
+	}
+}
+
+.get-info {
 	cursor: pointer;
 }

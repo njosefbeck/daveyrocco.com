@@ -1,7 +1,7 @@
 .home {
 	position: absolute;
 	background-color: $black;
-	color: $white;
+	color: rgba($white, .9);
 	padding: 10px;
 	width: 32px;
 	height: 32px;
@@ -9,4 +9,14 @@
 	bottom: 10px;
 	left: 10px;
 	cursor: pointer;
+	transition: all 0.5s;
+
+	&:hover {
+		color: rgba($white, 1);
+	}
+}
+
+.home-text {
+	margin-top: 6px;
+	margin-left: -1px;
 }
