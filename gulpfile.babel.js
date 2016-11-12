@@ -75,12 +75,17 @@ gulp.task('images', () => {
 		.pipe(gulp.dest('dist/images'));
 });
 
+gulp.task('fonts', () => {
+	gulp.src('app/fonts/*')
+		.pipe(gulp.dest('dist/fonts'));
+});
+
 gulp.task('bundle', () => {
 	var bundler = browserify(jsPaths.src).transform(babelify, { presets: ['es2015'] });
 	bundle(bundler);
 });
 
-gulp.task('build', ['styles', 'images', 'bundle'],  () => {
+gulp.task('build', ['styles', 'images', 'bundle', 'fonts'],  () => {
 	gulp.src([`${dirs.app}/*.html`, `${dirs.app}/style.css`, `${dirs.app}/bundle.js`])
 		.pipe(gulp.dest(dirs.dist));
 });

@@ -1,3 +1,13 @@
+@font-face {
+	font-family: 'Michelle';
+	src: url('fonts/Michelle.eot');
+	src: url('fonts/Michelle.woff') format('woff'), 
+		url('fonts/Michelle.ttf') format('truetype'), 
+		url('fonts/Michelle.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
 @import 'base/variables';
 @import 'base/base';
 
