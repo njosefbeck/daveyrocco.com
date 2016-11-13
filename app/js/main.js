@@ -5,24 +5,39 @@ import '../libs/jquery.infinitedrag.js';
 jQuery(document).ready(() => {
 	'use strict';
 
-	var centeredTile = {};
-	var documentWidth = document.documentElement.clientWidth;
-	var documentHeight = document.documentElement.clientHeight;
+	const centeredTile = {};
+	const documentWidth = document.documentElement.clientWidth;
+	const documentHeight = document.documentElement.clientHeight;
+	const homeInfo = `<div class="content-container">
+		<div class="content">
+		<h1>davey rocco</h1>
+		<p class="get-info">get info</p>
+		</div>
+		</div>`;
+
+	const moreInfo = `<div class="info">
+		<div class="close-info">X</div>
+		<h2>Information</h2>
+		<p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Maecenas sed diam eget risus varius blandit sit amet non magna. Cras mattis consectetur purus sit amet fermentum. Donec id elit non mi porta gravida at eget metus.</p>
+		<p>Curabitur blandit tempus porttitor. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nulla vitae elit libero, <a href="#">a pharetra augue. Fusce dapibus,</a> tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec sed odio dui.</p>
+		</div>`;
 
 	let tileWidth = 750;
 	let tileHeight = 495;
+	const originalRatio = tileHeight / tileWidth;
+	let count = 1;
+	let numberOfImages = 168;
 
-	if (documentWidth <= 750) {
+	if (documentWidth <= tileWidth) {
 		tileWidth = documentWidth - 10;
-		tileHeight = ( 495 / 750 ) * tileWidth;
+		tileHeight = ( originalRatio ) * tileWidth;
 	}
 	
-	let count = 1;
-	let numberOfImages = 55;
 	const wall = jQuery.infinitedrag('#wall', { elementsWithInteraction: '.info, .get-info'}, {
 		width: tileWidth,
 		height: tileHeight,
-		oncreate: function($element, col, row) {
+		cleaning_enabled: false,
+		oncreate: ($element, col, row) => {
 			if(count > numberOfImages) {
 				count = 1;
 			}
@@ -33,13 +48,13 @@ jQuery(document).ready(() => {
 				centeredTile.row = row;
 			}
 
-			$element.css('background-image', 'url("images/' + count + '.jpg")');
+			$element.css('background-image', `url("images/${count}.jpg")`);
 			count++;
 		}
 	});
 
-	centeredTile.element.append('<div class="content-container"><div class="content"><h1>davey rocco</h1><p class="get-info">get info</p></div></div>');
-	centeredTile.element.append('<div class="info"><div class="close-info">X</div><h2>Information</h2><p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Maecenas sed diam eget risus varius blandit sit amet non magna. Cras mattis consectetur purus sit amet fermentum. Donec id elit non mi porta gravida at eget metus.</p><p>Curabitur blandit tempus porttitor. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nulla vitae elit libero, <a href="#">a pharetra augue. Fusce dapibus,</a> tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec sed odio dui.</p><p>Curabitur blandit tempus porttitor. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nulla vitae elit libero, a pharetra augue. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec sed odio dui.</p><p>Curabitur blandit tempus porttitor. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nulla vitae elit libero, a pharetra augue. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec sed odio dui.</p><p>Curabitur blandit tempus porttitor. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nulla vitae elit libero, a pharetra augue. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec sed odio dui.</p><p>Curabitur blandit tempus porttitor. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nulla vitae elit libero, a pharetra augue. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec sed odio dui.</p></div>');
+	centeredTile.element.append(homeInfo);
+	centeredTile.element.append(moreInfo);
 
 	wall.center(centeredTile.col, centeredTile.row);
 
@@ -51,11 +66,15 @@ jQuery(document).ready(() => {
 		jQuery('.info').addClass('show');
 	}
 
-	function hideInfo(e) {
+	function hideInfo() {
 		jQuery('.info').removeClass('show');
 	}
 
 	function centerTiles() {
+		centeredTile.element.append(homeInfo);
+		centeredTile.element.append(moreInfo);
+		jQuery('.get-info').on('click', showInfo);
+		jQuery('.close-info').on('click', hideInfo);
 		wall.center(centeredTile.col, centeredTile.row);
 	}
 });
