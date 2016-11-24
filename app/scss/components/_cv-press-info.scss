@@ -1,0 +1,62 @@
+.cv-press-info {
+	background-color: rgba($white, 0.95);
+	position: absolute;
+	overflow-y: scroll;
+	width: 95%;
+	top: 100%;
+	left: 7px;
+	bottom: 5px;
+	padding: 80px 10px 10px 10px;
+	transition: all 0.5s;
+	font-family: $body-font;
+	text-align: center;
+
+	p {
+		margin-left: 10px;
+		margin-right: 17px;
+	}
+
+	ul {
+		list-style-type: none;
+		padding-left: 0;
+	}
+
+	.exhibition-list {
+
+		.year {
+			font-size: 14px;
+			font-weight: bold;
+		}
+
+		.exhibition-title {
+			margin-bottom: .25rem;
+			font-weight: bold;
+		}
+
+		.exhibition-description {
+			margin-bottom: .5rem;
+		}
+	}
+
+	.press-list {
+		h4 {
+			margin-bottom: .25rem;
+		}
+
+		p {
+			margin-bottom: .25rem;
+		}
+	}
+}
+
+.cv-press-info.show {
+	top: 5px;
+	cursor: auto;
+}
+
+.close-cv-press-info {
+	position: absolute;
+	top: 6px;
+	right: 10px;
+	cursor: pointer;
+}
