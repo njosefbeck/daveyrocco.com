@@ -156,7 +156,7 @@ jQuery(document).ready(() => {
 		tileHeight = ( originalRatio ) * tileWidth;
 	}
 	
-	const wall = jQuery.infinitedrag('#wall', { elementsWithInteraction: '.info, .get-info, .cv-press-info'}, {
+	const wall = jQuery.infinitedrag('#wall', { elementsWithInteraction: '.info, .content-container, .cv-press-info'}, {
 		width: tileWidth,
 		height: tileHeight,
 		cleaning_enabled: false,
