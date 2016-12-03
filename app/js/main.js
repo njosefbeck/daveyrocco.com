@@ -182,13 +182,18 @@ jQuery(document).ready(() => {
 
 	wall.center(centeredTile.col, centeredTile.row);
 
-	jQuery(centeredTile.element).on('click', toggleInfo);
+	jQuery('.content-container').on('click', openInfo);
+	jQuery('.close-info').on('click', closeInfo);
 	jQuery('.close-cv-press-info').on('click', hideCVPressInfo);
 	jQuery('.home').on('click', centerTiles);
 	jQuery('.cv-press-link').on('click', showCVPress);
 
-	function toggleInfo() {
-		jQuery('.info').toggleClass('show');
+	function openInfo() {
+		jQuery('.info').addClass('show');
+	}
+
+	function closeInfo() {
+		jQuery('.info').removeClass('show');
 	}
 
 	function showCVPress(e) {
@@ -201,12 +206,6 @@ jQuery(document).ready(() => {
 	}
 
 	function centerTiles() {
-		centeredTile.element.append(homeInfo);
-		centeredTile.element.append(moreInfo);
-		centeredTile.element.append(CVPressInfo);
-		jQuery(centeredTile.element).on('click', toggleInfo);
-		jQuery('.close-cv-press-info').on('click', hideCVPressInfo);
-		jQuery('.cv-press-link').on('click', showCVPress);
 		wall.center(centeredTile.col, centeredTile.row);
 	}
 });
