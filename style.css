@@ -60,7 +60,8 @@ a, a:active {
       -ms-flex-align: center;
           align-items: center;
   height: 100%;
-  text-align: center; }
+  text-align: center;
+  cursor: pointer; }
 
 .content {
   display: table-cell;
@@ -74,9 +75,6 @@ a, a:active {
     transition: all 0.5s; }
     .content p:hover {
       color: rgba(0, 0, 0, 0.6); }
-
-.get-info {
-  cursor: pointer; }
 
 .home {
   position: absolute;
@@ -110,7 +108,8 @@ a, a:active {
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
   font-family: "Helvetica", sans-serif;
-  text-align: center; }
+  text-align: center;
+  cursor: pointer; }
   .info p {
     margin-left: 10px;
     margin-right: 17px; }
