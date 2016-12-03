@@ -4,6 +4,7 @@
 	align-items: center;
 	height: 100%;
 	text-align: center;
+	cursor: pointer;
 }
 
 .content {
@@ -23,8 +24,4 @@
 			color: rgba($black, 0.6);
 		}
 	}
-}
-
-.get-info {
-	cursor: pointer;
 }

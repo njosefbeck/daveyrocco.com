@@ -8,12 +8,7 @@ jQuery(document).ready(() => {
 	const centeredTile = {};
 	const documentWidth = document.documentElement.clientWidth;
 	const documentHeight = document.documentElement.clientHeight;
-	const homeInfo = `<div class="content-container">
-		<div class="content">
-		<h1>davey rocco</h1>
-		<p class="get-info">get info</p>
-		</div>
-		</div>`;
+	const homeInfo = `<div class="content-container"></div>`;
 
 	const moreInfo = `<div class="info">
 		<div class="close-info">X</div>
@@ -187,23 +182,18 @@ jQuery(document).ready(() => {
 
 	wall.center(centeredTile.col, centeredTile.row);
 
-	jQuery('.get-info').on('click', showInfo);
-	jQuery('.close-info').on('click', hideInfo);
+	jQuery(centeredTile.element).on('click', toggleInfo);
 	jQuery('.close-cv-press-info').on('click', hideCVPressInfo);
 	jQuery('.home').on('click', centerTiles);
 	jQuery('.cv-press-link').on('click', showCVPress);
 
-	function showInfo() {
-		jQuery('.info').addClass('show');
+	function toggleInfo() {
+		jQuery('.info').toggleClass('show');
 	}
 
 	function showCVPress(e) {
 		e.preventDefault();
 		jQuery('.cv-press-info').addClass('show');
-	}
-
-	function hideInfo() {
-		jQuery('.info').removeClass('show');
 	}
 
 	function hideCVPressInfo() {
@@ -214,8 +204,7 @@ jQuery(document).ready(() => {
 		centeredTile.element.append(homeInfo);
 		centeredTile.element.append(moreInfo);
 		centeredTile.element.append(CVPressInfo);
-		jQuery('.get-info').on('click', showInfo);
-		jQuery('.close-info').on('click', hideInfo);
+		jQuery(centeredTile.element).on('click', toggleInfo);
 		jQuery('.close-cv-press-info').on('click', hideCVPressInfo);
 		jQuery('.cv-press-link').on('click', showCVPress);
 		wall.center(centeredTile.col, centeredTile.row);
