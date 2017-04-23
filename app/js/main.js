@@ -13,8 +13,6 @@ jQuery(document).ready(() => {
 	const moreInfo = `<div class="info">
 		<div class="close-info">X</div>
 		<p>This website is an ongoing collection of Davey Rocco’s latest work. All photographs are scans of black and white film negatives. He prints 8x10 silver gelatins using traditional methods.</p>
-		<p>Davey Rocco is a cinematographer and photographer based in St. Louis, MO. He has worked on professional and commercial projects in Hollywood and has travelled the country running camera on commercials and personal projects. He has earned an MFA in Studio Art with an emphasis on Photography from Fontbonne University.</p>
-		<p>He has since completed two feature films, one documentary, and one narrative. The Gray Seasons has shown in over a dozen film festivals and has gained national distribution through Amazon Prime and other platforms. Davey Rocco teaches film production at Webster University. He continues to strengthen and develop his visual storytelling language by working on video and photographic projects, both personal and commercial.</p>
 		<nav>
 		<ul>
 			<li><a href="https://www.instagram.com/regardingphotography/" target="_blank">Instagram</a></li>
