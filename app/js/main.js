@@ -17,7 +17,8 @@ jQuery(document).ready(() => {
 		<ul>
 			<li><a href="https://www.instagram.com/regardingphotography/" target="_blank">Instagram</a></li>
 			<li><a href="http://graypicture.com/" target="_blank">Gray Picture</a></li>
-			<li><a href="#" class="cv-press-link">cv/press</a></li> 
+			<li><a href="#" class="cv-press-link">cv/press</a></li>
+			<li>contact: roccodavey@gmail.com</li>
 		</ul>
 		</nav>
 		</div>`;
