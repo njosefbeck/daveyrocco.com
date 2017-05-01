@@ -27,7 +27,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 	var tileHeight = 495;
 	var originalRatio = tileHeight / tileWidth;
 	var count = 1;
-	var numberOfImages = 207;
+	var numberOfImages = 206;
 
 	if (documentWidth <= tileWidth) {
 		tileWidth = documentWidth - 10;
