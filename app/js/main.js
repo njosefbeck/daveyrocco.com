@@ -148,7 +148,7 @@ jQuery(document).ready(() => {
 	let tileHeight = 495;
 	const originalRatio = tileHeight / tileWidth;
 	let count = 1;
-	let numberOfImages = 207;
+	let numberOfImages = 206;
 
 	if (documentWidth <= tileWidth) {
 		tileWidth = documentWidth - 10;
