@@ -16,8 +16,6 @@
  *        http://patorjk.com/software/taag/#p=display&f=Speed&t=jquery.pep.js
  */
 
- import jQuery from 'jquery';
-
 ;(function ( $, window, undefined ) {
 
   "use strict";

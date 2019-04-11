@@ -10,8 +10,6 @@
  * http://github.com/Sleavely/jquery-infinite-drag/ for additional documentation
  */
 
-import jQuery from 'jquery';
-
 (function($) {
 	/**
 	 * Function to create InfiniteDrag object.
@@ -246,7 +244,7 @@ import jQuery from 'jquery';
 			if (_to.cleaning_enabled) {
 				return;
 			}
-			
+
 			// Finds tiles which can be seen based on window width & height
 			var maxLeft = (left + viewport_cols) + 1,
 				maxTop = (top + viewport_rows);
